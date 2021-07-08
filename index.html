@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title> Joe Travis</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="navbackground">
+        <div class="navbar">
+
+            <div class="nav-links">
+                <ul class="links">
+                    <li><a href="#Dig">Digital</a></li>
+                    <li><a href="#Trad">Traditional</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="logo">
+                <h2>Joe Travis</h2>
+                <p>titles</p>
+            </div>
+
+            <div class="nav-links"> 
+                <ul class="links"> 
+                    <li><a href="#">IG</a></li>
+                    <li><a href="#">FB</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="Dig" class="digArt"></div>
+    <div id="Trad" class="tradArt"></div>
+
+    <script src="imgHandler.js"></script>
+    <script>
+        // Dynamically append all art in folders using jquery 
+        // var folder = "art/digital";
+        // $(document).ready(async function(){ 
+        //     await $.ajax({
+        //         url : folder,
+        //         success: function (data) {
+        //             $(data).find("a").attr("href", function (i, val) {
+        //                 if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+        //                     $(".digArt").append( "<div class='imgWrap'><img src='"+ val + "'></div>" );
+        //                 } 
+        //             });
+        //         }
+        //     });
+
+        //     folder = "art/traditional"; 
+        //     await $.ajax({
+        //         url : folder,
+        //         success: function (data) {
+        //             $(data).find("a").attr("href", function (i, val) {
+        //                 if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+        //                     $(".tradArt").append( "<div class='imgWrap'><img src='"+ val + "'></div>" );
+        //                 } 
+        //             });
+        //         }
+        //     });
+        // });
+        resizeImages(); 
+    </script>
+</body>
+
+</html>
