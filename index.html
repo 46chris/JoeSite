@@ -38,37 +38,64 @@
 
     <div id="Dig" class="digArt"></div>
     <div id="Trad" class="tradArt"></div>
-
-    <script src="imgHandler.js"></script>
-    <script>
-        // Dynamically append all art in folders using jquery 
-        // var folder = "art/digital";
-        // $(document).ready(async function(){ 
-        //     await $.ajax({
-        //         url : folder,
-        //         success: function (data) {
-        //             $(data).find("a").attr("href", function (i, val) {
-        //                 if( val.match(/\.(jpe?g|png|gif)$/) ) { 
-        //                     $(".digArt").append( "<div class='imgWrap'><img src='"+ val + "'></div>" );
-        //                 } 
-        //             });
-        //         }
-        //     });
-
-        //     folder = "art/traditional"; 
-        //     await $.ajax({
-        //         url : folder,
-        //         success: function (data) {
-        //             $(data).find("a").attr("href", function (i, val) {
-        //                 if( val.match(/\.(jpe?g|png|gif)$/) ) { 
-        //                     $(".tradArt").append( "<div class='imgWrap'><img src='"+ val + "'></div>" );
-        //                 } 
-        //             });
-        //         }
-        //     });
-        // });
-        resizeImages(); 
-    </script>
 </body>
+
+<script>
+    //Insert images into page 
+    let dig = "art/digital/dig";
+    let numDig = 4; 
+    let trad = "art/traditional/trad"; 
+    let numTrad = 2; 
+
+    //Number of digital images 
+    for (let i = 1; i <= numDig; i++){ 
+        let image = document.createElement("img"); 
+        let div = document.createElement("div"); 
+
+        div.className = "imgWrap"; 
+        div.appendChild(image); 
+
+        image.src = dig + `${i}.jpg`;
+        document.querySelector(".digArt").appendChild(div); 
+    }
+
+    //Number of traditional images 
+    for (let i = 1; i <= numTrad; i++){ 
+        let image = document.createElement("img"); 
+        let div = document.createElement("div"); 
+
+        div.className = "imgWrap"; 
+        div.appendChild(image); 
+
+        image.src = trad + `${i}.jpg`;
+        document.querySelector(".tradArt").appendChild(div); 
+    }
+
+    //Resize them motherfuckers 
+    for (let i = 1; i <= numDig; i += 2){ 
+        let firstImg = document.querySelector(`#Dig div:nth-child(${i}) img`); 
+        let firstDiv = document.querySelector(`#Dig div:nth-child(${i})`); 
+
+        let secondImg = document.querySelector(`#Dig div:nth-child(${i + 1}) img`); 
+        let secDiv = document.querySelector(`#Dig div:nth-child(${i + 1})`); 
+
+        //Make every third one full width 
+        if ( i % 3 == 0){ 
+            firstDiv.style.flexBasis = "100%";    
+        }
+        else { 
+            let totalWidth = firstImg.naturalWidth + secondImg.naturalWidth; 
+            console.log(totalWidth); 
+            firstDiv.style.flexBasis = `${(firstImg.naturalWidth / totalWidth) * 100}%`
+            secDiv.style.flexBasis = `${(secondImg.naturalWidth / totalWidth) * 100}%`
+        }
+        //If not enough images to fill out a row, just set basis to 45%
+        if (i + 1 == numDig){ 
+            secDiv.style.flexBasis = "45%"; 
+        }
+    }
+    console.log(document.querySelector("#Dig div:nth-child(1)"));
+
+</script>
 
 </html>
