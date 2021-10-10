@@ -212,6 +212,10 @@ input[type=text], input[type=email], #message{
   color: black; 
 }
 
+#fs-frm-inputs input, #fs-frm-inputs textarea { 
+  color: black; 
+}
+
 
 
 .socials { 
