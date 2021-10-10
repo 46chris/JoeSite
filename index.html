@@ -5,97 +5,129 @@
     <title> Joe Travis</title>
 
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <div class="navbackground">
         <div class="navbar">
+            <div class="block"></div>
+            <div class="logo">
+                <h2>Joe Travis</h2>
+            </div>
+
 
             <div class="nav-links">
                 <ul class="links">
-                    <li><a href="#Dig">Digital</a></li>
-                    <li><a href="#Trad">Traditional</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li class="link"><a class="alink active-page" href="#Dig">Art</a></li>
+                    <!-- <li><a class="link" href="#Trad">Traditional</a></li> -->
+                    <li class="link"><a class="alink" href="#Abt">About</a></li>
+                    <li class="link"><a class="alink" href="#Cont">Contact</a></li>
                 </ul>
             </div>
 
-            <div class="logo">
-                <h2>Joe Travis</h2>
-                <p>titles</p>
+            <!--Hamburger menu stuff-->
+            <div class="hb-outer">
+                <div class="hb-container" onclick="myFunction(this)">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
             </div>
-
-            <div class="nav-links"> 
-                <ul class="links"> 
-                    <li><a href="#">IG</a></li>
-                    <li><a href="#">FB</a></li>
-                </ul>
-            </div>
-
         </div>
     </div>
 
-    <div id="Dig" class="digArt"></div>
-    <div id="Trad" class="tradArt"></div>
+    <div class="artWrap">
+        <div id="Dig" class="digArt section"></div>
+        <div id="Trad" class="tradArt section"></div>
+
+        <!--Modal to make the images clickable-->
+        <div class="modal"> 
+            <span class="close">x</span>
+            <img class="modalImage" id="img01" />
+        </div>
+    </div>
+
+
+
+    <div class="about section" id="Abt">
+        <div class="picContainer"> 
+            <img src="imgs/ProfilePic.png" class="profPic">
+        </div>
+
+        <div class="pp">
+            <h2>About Me</h2>
+            <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+                Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+                Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+                Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum </p>
+        </div>
+    </div>
+
+    <div class="bg">
+        <div class="contact section">
+            <div class="cp">
+                <h2 id="Cont">Contact me</h2>
+            </div>
+            <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/{mqkwdbkr}" method="POST">
+                <fieldset id="fs-frm-inputs">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" name="name" id="full-name" placeholder="First and Last" required="">
+
+                    <label for="email-address">Email Address</label>
+                    <input type="email" name="_replyto" id="email-address" placeholder="email@domain.tld" required="">
+
+                    <label for="message">Message</label>
+                    <textarea rows="5" name="message" id="message" placeholder="Message Here" required=""></textarea>
+
+                    <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+                </fieldset>
+                <input class="sub" type="submit" value="Submit">
+            </form>
+        </div>
+        
+        <div class="socials"> 
+            <a href="https://www.instagram.com/hosoiart/" target="_blank"><img class="ig" src="imgs/igLogo3.png"></a>
+        </div>
+
+    </div>
 </body>
-
+<script src="imgHandler.js"></script>
 <script>
-    //Insert images into page 
-    let dig = "art/digital/dig";
-    let numDig = 4; 
-    let trad = "art/traditional/trad"; 
-    let numTrad = 2; 
+//Handles the hamburger menu 
+function myFunction(x) {
+    x.classList.toggle("change");
+    //Handle the drop down 
+    let links= document.querySelector(".links");
+    let nLinks = document.querySelector(".navbar .nav-links"); 
+    console.log(nLinks); 
+    if (window.getComputedStyle(links).top === "74px"){ 
+        links.style.animation = "disappear 0.5s ease-in-out";
+        links.style.top = "-300px"; 
 
-    //Number of digital images 
-    for (let i = 1; i <= numDig; i++){ 
-        let image = document.createElement("img"); 
-        let div = document.createElement("div"); 
-
-        div.className = "imgWrap"; 
-        div.appendChild(image); 
-
-        image.src = dig + `${i}.jpg`;
-        document.querySelector(".digArt").appendChild(div); 
     }
+    else { 
+        links.style.animation = "appear 0.7s ease-in-out"; 
+        links.style.top = "74px"; 
+    } 
 
-    //Number of traditional images 
-    for (let i = 1; i <= numTrad; i++){ 
-        let image = document.createElement("img"); 
-        let div = document.createElement("div"); 
+}
 
-        div.className = "imgWrap"; 
-        div.appendChild(image); 
-
-        image.src = trad + `${i}.jpg`;
-        document.querySelector(".tradArt").appendChild(div); 
-    }
-
-    //Resize them motherfuckers 
-    for (let i = 1; i <= numDig; i += 2){ 
-        let firstImg = document.querySelector(`#Dig div:nth-child(${i}) img`); 
-        let firstDiv = document.querySelector(`#Dig div:nth-child(${i})`); 
-
-        let secondImg = document.querySelector(`#Dig div:nth-child(${i + 1}) img`); 
-        let secDiv = document.querySelector(`#Dig div:nth-child(${i + 1})`); 
-
-        //Make every third one full width 
-        if ( i % 3 == 0){ 
-            firstDiv.style.flexBasis = "100%";    
-        }
-        else { 
-            let totalWidth = firstImg.naturalWidth + secondImg.naturalWidth; 
-            console.log(totalWidth); 
-            firstDiv.style.flexBasis = `${(firstImg.naturalWidth / totalWidth) * 100}%`
-            secDiv.style.flexBasis = `${(secondImg.naturalWidth / totalWidth) * 100}%`
-        }
-        //If not enough images to fill out a row, just set basis to 45%
-        if (i + 1 == numDig){ 
-            secDiv.style.flexBasis = "45%"; 
-        }
-    }
-    console.log(document.querySelector("#Dig div:nth-child(1)"));
-
+//For the modal 
+let modalEl = document.querySelector(".modal"); 
+let modalImg = document.querySelector(".modalImage"); 
+Array.from(document.querySelectorAll(".art")).forEach(item => { 
+    item.addEventListener("click", event => { 
+        modalEl.style.display = "flex"; 
+        modalImg.src = event.target.src; 
+    });
+})
+document.querySelector(".close").addEventListener("click", () => {
+   modalEl.style.display = "none";
+});
 </script>
 
 </html>
