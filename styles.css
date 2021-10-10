@@ -20,26 +20,25 @@ body{
 
 /*The text actually in the navbar*/ 
 .navbar{
-    display: flex;
-    height: 58px; 
-    align-items: center; 
+  display: flex;
+  height: 58px; 
+  align-items: center;
+  width: 100%;  
 }
 
 /*Equal space per element in navbar*/
 .navbar div { 
   flex: 1 1 0; 
 }
-
-/* body > div.navbackground > div > div:nth-child(4){ 
-  display: flex; 
-  justify-content: flex-end;
-} */
-
+.hb-outer{ 
+  display: none; 
+}
 /*Joe's name in the navbar*/
 .logo{
     color: #f5f5f5;
-    text-align:left;
+    text-align:center;
     margin: auto 1.5vw; 
+
 }
 
 .logo h2{
@@ -213,9 +212,7 @@ input[type=text], input[type=email], #message{
   color: black; 
 }
 
-.hb-outer, .block{ 
-  display: none; 
-}
+
 
 .socials { 
   display: flex;
@@ -237,7 +234,7 @@ input[type=text], input[type=email], #message{
 }
 
 /*Phone implementation */ 
-@media screen and (max-width: 525px){ 
+@media screen and (max-width: 600px){ 
   .navbar { 
     height: 58px;  
     display: flex; 
