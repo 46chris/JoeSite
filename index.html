@@ -14,9 +14,9 @@
 <body>
     <div class="navbackground">
         <div class="navbar">
-            <div class="block">&nbsp; &nbsp;</div>
             <div class="logo">
-                <h2>Joe Travis</h2>
+                <!-- <h2>Joe Travis</h2> -->
+                <img src="art/titleCard.PNG">
             </div>
 
 
@@ -29,6 +29,11 @@
                 </ul>
             </div>
 
+            <div class="socials"> 
+                <div class="ig"> 
+                    <a href="https://www.instagram.com/hosoiart/" target="_blank"><img class="ig" src="imgs/igLogo.png"></a>
+                </div>
+            </div>
             <!--Hamburger menu stuff-->
             <div class="hb-outer">
                 <div class="hb-container" onclick="myFunction(this)">
@@ -53,7 +58,7 @@
 
 
 
-    <div class="about section" id="Abt">
+    <!-- <div class="about section" id="Abt">
         <div class="picContainer"> 
             <img src="imgs/ProfilePic.png" class="profPic">
         </div>
@@ -93,9 +98,9 @@
             <a href="https://www.instagram.com/hosoiart/" target="_blank"><img class="ig" src="imgs/igLogo3.png"></a>
         </div>
 
-    </div>
+    </div> -->
 </body>
-<script src="imgHandler.js"></script>
+<script src="scripts/imgHandler.js"></script>
 <script>
 //Handles the hamburger menu 
 function myFunction(x) {
@@ -104,14 +109,14 @@ function myFunction(x) {
     let links= document.querySelector(".links");
     let nLinks = document.querySelector(".navbar .nav-links"); 
     console.log(nLinks); 
-    if (window.getComputedStyle(links).top === "74px"){ 
+    if (window.getComputedStyle(links).top === "70px"){ 
         links.style.animation = "disappear 0.5s ease-in-out";
         links.style.top = "-300px"; 
 
     }
     else { 
         links.style.animation = "appear 0.7s ease-in-out"; 
-        links.style.top = "74px"; 
+        links.style.top = "70px";  
     } 
 
 }
