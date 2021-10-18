@@ -1,9 +1,12 @@
 html{ 
   scroll-behavior: smooth;
   font-family: 'MontSerrat', sans-serif;
+  height: 100%;
 }
 body{ 
+  background-color:rgb(235, 236, 245);
   margin: 0; 
+  height: 100%; 
 }
 
 /*The background of the navbar */
@@ -94,9 +97,8 @@ ul.links li a:hover{
   height: 20px; 
 }
 /*Formatting for the art*/
-.artWrap{ 
+.artWrap, .about, .bg{ 
   margin-left: 250px; 
-  float: right; 
   background-color: rgb(235, 236, 245);
 }
 .digArt, .tradArt{ 
@@ -156,17 +158,55 @@ ul.links li a:hover{
 }
 
 /*About section */
-.about, .contact{ 
-  margin: 200px 7vw; 
+.contact{ 
+  margin: 0 7vw; 
   display: flex; 
   flex-direction: column; 
   padding-top: 100px; 
 }
-
+.about{ 
+  height: 100%; 
+}
+.card{ 
+  box-sizing: border-box;
+  display: flex; 
+  justify-content: center; 
+  max-width: 900px;
+  margin: 0 auto; 
+  height: 100%; 
+  max-height: 1200px; 
+}
+.column {  
+  display: flex; 
+  flex-direction: column; 
+  padding: 40px 30px;
+  flex: 1 1 0; 
+  height: 85%; 
+}
+.column div{
+  box-sizing: border-box; 
+  width: 100%; 
+  overflow: hidden; 
+  margin: auto; 
+}
+.column div img { 
+  width: 100%;
+  height: auto;
+  margin: 10px 0; 
+}
+.blurb { 
+  position: fixed; 
+  width: 30vw; 
+  max-width: 400px; 
+  flex: 0;  
+  top: 29%; 
+  left: 45%; 
+  background:white; 
+  padding: 10px; 
+}
 .picContainer, .pp{ 
   margin: auto; 
   max-width: 900px;
-
 }
 
 .profPic{ 
@@ -181,9 +221,8 @@ ul.links li a:hover{
 
 /*Contact section*/ 
 .bg { 
-  width: 100%; 
   box-sizing: border-box;
-  background-color:#252525;
+  height: 100%; 
 }
 .contact { 
   margin-top: 0; 
@@ -194,7 +233,7 @@ ul.links li a:hover{
   box-sizing: border-box; 
   max-width: 900px;  
   margin: auto;
-  color: white; 
+  color: black;  
 }
 .cp { 
   width: 100%; 
@@ -226,13 +265,42 @@ input[type=text], input[type=email], #message{
   color: black; 
 }
 @media screen and (max-width: 1238px){ 
-  .artWrap { 
+  .artWrap, .about, .bg{ 
     margin-left: 20vw; 
+    height: 100%; 
   }
 }
-@media screen and (max-width: 800px){ 
+@media screen and (max-width: 900px){ 
   .imgWrap { 
     flex-basis: 100% !important;
+  }
+  .about { 
+    height: unset; 
+    display: flex; 
+    flex-direction: column;  
+  }
+  .card { 
+    width: 60%; 
+    margin-top: 50px; 
+  }
+  .column{  
+    height: 100%; 
+    padding: 0; 
+    flex: unset; 
+  }
+  .blurb { 
+    width: 60%;
+    box-sizing: border-box; 
+    position: static; 
+    margin: 30px auto;  
+  }
+  .mainImg{
+    margin: 0 auto !important; 
+  }
+
+  .card .column:nth-child(2){ 
+    display: none; 
+    width: 100%; 
   }
 }
 
@@ -243,6 +311,9 @@ input[type=text], input[type=email], #message{
     max-width: 100%; 
     height: 70px;
     z-index:1 !important; 
+    -webkit-box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.44); 
+    box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.44);
+    top: 0; 
   }
   .navbar { 
     align-items: center;  
@@ -253,6 +324,7 @@ input[type=text], input[type=email], #message{
     width: 100%; 
     flex-wrap: nowrap; 
     justify-content: space-between;  
+    background: white; 
   }
   .navbar div { 
     flex: 1 1 0; 
@@ -303,20 +375,20 @@ input[type=text], input[type=email], #message{
   }
   
   .bar1, .bar2, .bar3 {
-    width: 35px;
-    height: 5px;
-    background-color: #333;
+    width: 30px;
+    height: 4px;
+    background-color: rgb(139, 146, 151);
     margin: 6px 0;
     transition: 0.4s;
   }
   .change .bar1 {
-    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-    transform: rotate(-45deg) translate(-9px, 6px);
+    -webkit-transform: rotate(-45deg) translate(-8px, 6px);
+    transform: rotate(-45deg) translate(-8px, 6px);
   }
   .change .bar2 {opacity: 0;}
   .change .bar3 {
-    -webkit-transform: rotate(45deg) translate(-8px, -8px);
-    transform: rotate(45deg) translate(-8px, -8px);
+    -webkit-transform: rotate(45deg) translate(-7px, -7px);
+    transform: rotate(45deg) translate(-7px, -7px);
   }
 
   div.nav-links .links{
@@ -377,5 +449,12 @@ input[type=text], input[type=email], #message{
   .artWrap { 
     margin-top: 70px; 
     margin-left: 0; 
+  }
+  .about, .bg{ 
+    margin: 0; 
+    padding-top: 70px; 
+  }
+  .card, .blurb { 
+    width: 75%; 
   }
 }

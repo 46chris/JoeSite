@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <title> Joe Travis</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
 
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
 </head>
 <body>
     <div class="navbackground">
@@ -42,38 +42,32 @@
                     <div class="bar3"></div>
                 </div>
             </div>
-        </div>
+        </div>       
     </div>
 
-    <div class="artWrap">
-        <div id="Dig" class="digArt section"></div>
-        <div id="Trad" class="tradArt section"></div>
+    
+    <div class="bg">
+        <div class="contact section">
+            <div class="cp">
+                <h2 id="Cont">Contact me</h2>
+            </div>
+            <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/{mqkwdbkr}" method="POST">
+                <fieldset id="fs-frm-inputs">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" name="name" id="full-name" placeholder="First and Last" required="">
 
-        <!--Modal to make the images clickable-->
-        <div class="modal"> 
-            <span class="close">x</span>
-            <img class="modalImage" id="img01" />
+                    <label for="email-address">Email Address</label>
+                    <input type="email" name="_replyto" id="email-address" placeholder="email@domain.tld" required="">
+
+                    <label for="message">Message</label>
+                    <textarea rows="5" name="message" id="message" placeholder="Message Here" required=""></textarea>
+
+                    <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+                </fieldset>
+                <input class="sub" type="submit" value="Submit">
+            </form>
         </div>
     </div>
-
 </body>
-<script src="scripts/imgHandler.js"></script>
 <script src="scripts/dropDown.js"></script>
-<script>
-
-
-//For the modal 
-let modalEl = document.querySelector(".modal"); 
-let modalImg = document.querySelector(".modalImage"); 
-Array.from(document.querySelectorAll(".art")).forEach(item => { 
-    item.addEventListener("click", event => { 
-        modalEl.style.display = "flex"; 
-        modalImg.src = event.target.src; 
-    });
-})
-document.querySelector(".close").addEventListener("click", () => {
-   modalEl.style.display = "none";
-});
-</script>
-
 </html>
